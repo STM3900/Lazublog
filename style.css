@@ -1,0 +1,252 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Overlock', cursive;
+}
+
+header {
+    height: 60vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+
+}
+
+header aside {
+    position: absolute;
+    height: 60vh;
+    width: 100%;
+
+    background-image: url('medias/walpaper.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    filter: brightness(0.7);
+
+    z-index: -1;
+}
+
+header h1 {
+    padding-right: 10%;
+    padding-left: 10%;
+    color: white;
+
+    font-size: 55px;
+}
+
+.general-content{
+    background: #E4F1FF;
+}
+
+section {
+    padding-top: 5%;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.desc{
+    margin-bottom: 5%;
+}
+
+.desc p {
+    color: #6b5c43;
+    background: white;
+
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    margin-left: 15%;
+    margin-right: 15%;
+
+    border-radius: 15px;
+
+    font-size: 20px;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #ABD7FF;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+    padding: 10px 50px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    transition: 0.3s;
+}
+
+/* The circles on the timeline */
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: #89CAFF;
+    border: 4px solid #60BDFF;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the container to the right */
+.right {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid #ABD7FF;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #ABD7FF;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid #ABD7FF;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #ABD7FF transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -16px;
+}
+
+/* The actual content */
+.content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 175px;
+    position: relative;
+    border-radius: 2px;
+    color: #E4F1FF;
+    
+    background: rgba(0, 0, 0, 0);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.content aside{
+    border-radius: 2px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    background-image: url('medias/2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.7);
+    transition: 0.3s;
+}
+
+.content:hover{
+    cursor: pointer;
+}
+
+.content:hover aside{
+    filter: brightness(0.6);
+}
+
+.content h2, p{
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 1;
+}
+
+.content h2{
+    font-size: 40px;
+    background: #89CAFF;
+}
+
+.content p{
+    font-size: 25px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 700px) {
+
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containers */
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+        left: 60px;
+        border: medium solid #ABD7FF;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #ABD7FF transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after,
+    .right::after {
+        left: 15px;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0%;
+    }
+}
