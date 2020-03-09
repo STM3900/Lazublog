@@ -1,14 +1,16 @@
-*{
+* {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
     font-family: 'Overlock', cursive;
+
+    background: #E4F1FF;
 }
 
-header {
-    height: 60vh;
+.general-header {
+    height: 80vh;
     width: 100%;
 
     display: flex;
@@ -16,12 +18,11 @@ header {
     justify-content: center;
     align-items: flex-start;
     align-content: center;
-
 }
 
-header aside {
+.general-header aside {
     position: absolute;
-    height: 60vh;
+    height: 80vh;
     width: 100%;
 
     background-image: url('medias/walpaper.jpg');
@@ -34,7 +35,7 @@ header aside {
     z-index: -1;
 }
 
-header h1 {
+.general-header h1 {
     padding-right: 10%;
     padding-left: 10%;
     color: white;
@@ -42,8 +43,61 @@ header h1 {
     font-size: 55px;
 }
 
-.general-content{
-    background: #E4F1FF;
+.article-header {
+    height: 30vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.article-header div {
+    height: 23vh;
+    width: 65%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 5px;
+}
+
+.article-header div aside {
+    position: absolute;
+    height: 23vh;
+    width: 65%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    border-radius: 5px;
+
+    filter: brightness(0.6);
+}
+
+.article-header div h1 {
+    color: white;
+    font-size: 40px;
+}
+
+.article-header div article {
+    position: absolute;
+    padding-right: 65%;
+    padding-bottom: 130px;
+}
+
+.article-header div article h2 {
+    padding-left: 200%;
+    padding-right: 120%;
+    font-size: 40px;
+
+    color: white;
+    background: #89CAFF;
 }
 
 section {
@@ -52,7 +106,7 @@ section {
     padding-left: 10%;
 }
 
-.desc{
+.desc {
     margin-bottom: 5%;
 }
 
@@ -167,7 +221,7 @@ section {
     position: relative;
     border-radius: 2px;
     color: #E4F1FF;
-    
+
     background: rgba(0, 0, 0, 0);
 
     display: flex;
@@ -177,14 +231,13 @@ section {
     align-content: center;
 }
 
-.content aside{
+.content aside {
     border-radius: 2px;
     position: absolute;
     width: 100%;
     height: 100%;
     padding: 0;
 
-    background-image: url('medias/2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -192,11 +245,11 @@ section {
     transition: 0.3s;
 }
 
-.content:hover{
+.content:hover {
     cursor: pointer;
 }
 
-.content:hover aside{
+.content:hover aside {
     filter: brightness(0.6);
 }
 
@@ -207,13 +260,112 @@ section {
     z-index: 1;
 }
 
-.content h2{
+.content h2 {
     font-size: 40px;
     background: #89CAFF;
 }
 
-.content p{
+.content p {
     font-size: 25px;
+}
+
+.button-main{
+    position: fixed;
+    left: 0;
+    top: 57px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 20px;
+
+    font-size: 30px;
+    color: white;
+    background: #89CAFF;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.button-main:hover{
+    padding-left: 15px;
+}
+
+.article-content {
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+    width: 65%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+
+    color: #6b5c43;
+    background: white;
+    border-radius: 15px;
+}
+
+.article-content p {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 20px;
+
+    text-align: justify;
+}
+
+.article-buttons {
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-top: 4vh;
+
+    width: 65%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+
+    color: #6b5c43;
+    background: white;
+    border-radius: 15px;
+}
+
+.article-buttons div {
+    margin-left: 15%;
+    margin-right: 15%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(137, 202, 255, 0.8);
+    border: solid 2px #89CAFF;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+
+    width: 25%;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    color: white;
+    cursor: pointer;
+    background-color: #89CAFF;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
