@@ -46,7 +46,7 @@
     <a class="button-main" href="index.php" >Retour à l'accueil</a>
     <header class="article-header">
         <div>
-            <aside style="background-image: url('medias/<?php echo $donnees['image'] ?>.jpg');"></aside>
+            <aside style="background-image: url('medias/mainimg/<?php echo $donnees['image'] ?>');"></aside>
             <article>
                 <h2><?php echo $donnees['id'] ?></h2>
             </article>

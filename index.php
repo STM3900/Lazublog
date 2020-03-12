@@ -9,7 +9,7 @@
 </head>
 <?php 
     include 'connectbdd.php';
-    $reponse = $bdd->query('SELECT * FROM article');
+    $reponse = $bdd->query('SELECT * FROM article ORDER BY id');
 ?>
 <body>
     <header class="general-header">
@@ -28,7 +28,7 @@
         ?>
             <div class="container left">
                 <div class="content" onclick="document.location.href='article.php?id=<?php echo $donnees['id'] ?>'">
-                    <aside style="background-image: url('medias/<?php echo $donnees['image'] ?>.jpg');"></aside>
+                    <aside style="background-image: url('medias/mainimg/<?php echo $donnees['image'] ?>');"></aside>
                     <h2>Jour <?php echo $donnees['id'] ?></h2>
                     <p><?php echo $donnees['titre'] ?></p>
                 </div>
