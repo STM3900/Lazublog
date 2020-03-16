@@ -54,7 +54,7 @@
         </div>
     </header>
     <section class="article-content">
-        <p><?php echo $donnees['description'] ?></p>
+        <p><?php echo nl2br($donnees['description']); ?></p>
     </section>
     <section class="article-buttons">
         <div>
