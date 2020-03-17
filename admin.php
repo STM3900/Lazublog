@@ -16,7 +16,7 @@
 <body>
     <div class="admin-add-article admin-content-add">
         <div>
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times close-icon"></i>
             <form action="addarticle.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="titre" placeholder="Titre"/>
                 <textarea name="commentaire" rows="10" cols="50"></textarea>
@@ -24,6 +24,20 @@
                 <input type="file" name="photo">
                 <input type="submit" name="ok" value="Envoyer">
             </form>
+        </div>
+    </div>
+
+    <div class="admin-remove-article admin-content-remove">
+        <i class="fas fa-times close-icon"></i>
+        <div>
+            <h1>Supprimer un article</h1>
+        </div>
+    </div>
+
+    <div class="admin-edit-article admin-content-edit">
+        <i class="fas fa-times close-icon"></i>
+        <div>
+            <h1>Modifier un article</h1>
         </div>
     </div>
 
