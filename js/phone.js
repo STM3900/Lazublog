@@ -1,9 +1,13 @@
 const phoneText = document.querySelector('.admin-phone h1');
 const adminPhone = document.querySelector('.admin-phone');
 
+const adminPhoneH1 = document.querySelector('.admin-phone h1');
+const adminPhoneIcons = document.querySelector('.admin-phone-icons');
+
 const addArticle = document.querySelector('.admin-content-add');
 const removeArticle = document.querySelector('.admin-content-remove');
 const editArticle = document.querySelector('.admin-content-edit');
+const adminPhoneHome = document.querySelector('.admin-phone-home');
 
 const iconAdd = document.querySelector('.icon-add-article i');
 const iconRemove = document.querySelector('.icon-remove-article i');
@@ -21,6 +25,10 @@ iconRemove.addEventListener("mouseover", function(){
 
 iconEdit.addEventListener("mouseover", function(){
     phoneText.textContent = "Modifier un article";
+});
+
+adminPhoneHome.addEventListener("mouseover", function(){
+    phoneText.textContent = "Revenir à l'accueil";
 });
 
 function initialText(){
@@ -57,6 +65,14 @@ function hideEdit(){
     adminPhone.style.opacity = 1;
 }
 
+const keyPress = (e) => {
+    if (e.key === "Escape"){
+        hideAdd();
+        hideRemove();
+        hideEdit();
+    } 
+}
+
 iconAdd.addEventListener("click", showAdd);
 addArticleIcon[0].addEventListener("click", hideAdd);
 
@@ -65,6 +81,14 @@ addArticleIcon[1].addEventListener("click", hideRemove);
 
 iconEdit.addEventListener("click", showEdit);
 addArticleIcon[2].addEventListener("click", hideEdit);
+
+document.addEventListener("keydown", keyPress);
+
+adminPhoneHome.addEventListener("click", function(){
+    document.location.href="index.php";
+});
+
+
 
 /*
 iconAdd.addEventListener("mouseout", function(){

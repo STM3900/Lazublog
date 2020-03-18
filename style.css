@@ -315,6 +315,45 @@ section {
     text-align: justify;
 }
 
+/*PARTIE SPECIALE POUR LES MODIFICATION D'ARTICLE*/
+
+
+.article-content form{
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.article-content input{
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.article-content textarea{
+    width: 100%;
+    resize: none;
+    min-height: 50vh;
+
+    outline: none;
+    font-family: 'Overlock', cursive;
+    background: white;
+    font-size: 20px;
+    color: #6b5c43;
+    border: none;
+
+    padding: 2%;
+}
+
+/*AUTRE*/
+
 .article-buttons {
     padding-right: 0;
     padding-left: 0;
@@ -366,6 +405,31 @@ section {
     color: white;
     cursor: pointer;
     background-color: #89CAFF;
+}
+
+/*special form*/
+
+.button-addarticle{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: solid 2px white;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+
+    width: 25%;
+
+    transition: 0.3s;
+}
+
+.button-addarticle:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /*AJOUTER UN ARTICLE*/
@@ -472,6 +536,33 @@ section {
     color: rgba(255, 255, 255, 0.3);
 }
 
+.admin-add-article input[type="file"]{
+    display: none;
+}
+
+.custom-file-upload{
+    font-family: 'Overlock', cursive;
+    background: rgba(255, 255, 255, 0);
+    font-size: 18px;
+    color: white;
+    border: white solid 2px;
+
+    text-align: center;
+    margin-top: 3%;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: 0.3s;
+
+    width: 100%;
+}
+
+.custom-file-upload:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
 /*SUPPRIMER UN ARTICLE*/
 
 .admin-content-remove{
@@ -514,6 +605,76 @@ section {
     color: white;
 }
 
+.article-remove-list{
+    width: 60vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.article-remove-list article{
+    height: 100px;
+    width: 275px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+.article-remove-list article aside{
+    position: absolute;
+    height: 100px;
+    width: 275px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.6);
+    transition: 0.3s;
+
+    z-index: -1;
+}
+
+.article-remove-list article h2{
+    font-size: 22px;
+}
+
+.article-remove-list input[type="submit"]{
+    position: absolute;
+    height: 100px;
+    width: 275px;
+
+    margin-top: 6px;
+    padding: 0;
+
+    background: none;
+    border: none;
+}
+
+.article-remove-list input[type="submit"]:focus{
+    border: none;
+    outline: none;
+}
+
+.article-remove-list input[type="submit"]:hover{
+    cursor: pointer;
+}
+
 /*EDITER UN ARTICLE*/
 
 .admin-content-edit{
@@ -544,7 +705,7 @@ section {
     opacity: 1;
 
     transition: 0.5s;
-    background: #e2be3c;
+    background: #f5ba5b;
     position: absolute;
 
     display: flex;
@@ -567,22 +728,31 @@ section {
     justify-content: center;
     align-items: center;
     align-content: center;
+
+    background: #9ad3e4;
 }
 
 .admin-phone{
-    width: 500px;
-    height: 75vh;
+    width: 0;
+    height: 0;
 
-    background: #eeece8;
+    background: #faf2e7;
     border-radius: 20%;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
 
-    transition: 0.1s;
+    transition:  opacity 0.3s, transform 0.1s, width 0.3s, height 0.3s;
+    opacity: 0;
+
+    overflow: hidden;
+}
+
+.lancement-anim{
+    animation: tremblement 0.6s 0s 1;
 }
 
 .admin-phone h1{
@@ -590,17 +760,25 @@ section {
     font-size: 40px;
 
     margin-top: 20%;
-    margin-bottom: 10%;
+    margin-bottom: 0;
+
+    opacity: 0;
+    transition: 0.3s;
 }
 
 .admin-phone-icons{
     width: 75%;
+    height: 35vh;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     align-content: center;
+
+    opacity: 0;
+
+    transition: 0.3s;
 }
 
 .admin-phone-icons i{
@@ -621,12 +799,171 @@ section {
 }
 
 .icon-edit-article{
-    color: #e2be3c;
+    color: #f5ba5b;
 }
 
 .admin-phone-icons i{
     font-size: 75px;
 }
+
+.admin-phone-home{
+    height: 65px;
+    width: 65px;
+
+    background: #776c63;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.1s;
+
+    margin-bottom: 5%;
+}
+
+.admin-phone-home i{
+    font-size: 35px;
+    color: #eeece8;
+}
+
+.admin-phone-home:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+/*POUR LA CONNEXION*/
+
+.admin-phone-co{
+    width: 0;
+    height: 0;
+
+    background: #faf2e7;
+    border-radius: 20%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    transition:  opacity 0.3s, transform 0.1s, width 0.3s, height 0.3s;
+    opacity: 0;
+
+    overflow: hidden;
+
+}
+
+.admin-phone-co h1{
+    color: #776c63;
+    font-size: 40px;
+
+    margin-top: 20%;
+    margin-bottom: 0;
+
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.admin-phone-co form{
+    width: 80%;
+    height: 35vh;
+   
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.admin-phone-co form input{
+    width: 100%;
+}
+
+.admin-phone-co form input[type="password"]{
+    background: #776c6334;
+    border: none;
+    border-radius: 5px;
+
+    margin-bottom: 4%;
+    color: #776c63;
+
+    font-size: 40px;
+    font-family: 'Overlock', cursive;
+
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    transition: 0.3s;
+}
+
+.admin-phone-co form input[type="password"]:focus{
+    outline: none;
+    background: #776c6342;
+}
+
+.admin-phone-co form input[type="submit"]{
+    background: none;
+    border: #776c63 solid 2px;
+    color: #776c63;
+    margin-top: 4%;
+}
+
+.admin-phone-co form input[type="submit"]:hover{
+    background: #776c63;
+    border: #776c63 solid 2px;
+    color: white;
+}
+
+.admin-phone-home-co{
+    height: 65px;
+    width: 65px;
+
+    background: #776c63;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.1s;
+
+    margin-bottom: 5%;
+}
+
+.admin-phone-home-co i{
+    font-size: 35px;
+    color: #eeece8;
+}
+
+.admin-phone-home-co:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+/*LE RESTE*/
+
+
+@keyframes tremblement {
+    0%   {transform: rotate(0deg);}
+    20% {transform: rotate(5deg);}
+    40% {transform: rotate(-5deg);}
+    60% {transform: rotate(5deg);}
+    80% {transform: rotate(-5deg);}
+    100% {transform: rotate(0deg);}
+  }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 700px) {
