@@ -69,19 +69,19 @@
     </section>
     <section class="article-buttons">
         <div>
-            <?php if($idArticle == 1): ?>
-                <a href="?id=<?php echo $idArticle +1 ?>" class="button next">Article suivant</a>
+            <?php if($idArticle == 0): ?>
+                <a href="?id=<?php echo $idArticle +1 ?>" class="button next">Chapitre suivant</a>
             <?php 
                 endif;
                 if($idArticle == $lastArticle[0]):
             ?>
-                <a href="?id=<?php echo $idArticle -1 ?>" class="button back">Article précedent</a>
+                <a href="?id=<?php echo $idArticle -1 ?>" class="button back">Chapitre précedent</a>
             <?php 
                 endif; 
-                if($idArticle > 1 && $idArticle != $lastArticle[0]):
+                if($idArticle > 0 && $idArticle != $lastArticle[0]):
             ?>
-                <a href="?id=<?php echo $idArticle -1 ?>" class="button back">Article précedent</a>
-                <a href="?id=<?php echo $idArticle +1 ?>" class="button next">Article suivant</a>
+                <a href="?id=<?php echo $idArticle -1 ?>" class="button back">Chapitre précedent</a>
+                <a href="?id=<?php echo $idArticle +1 ?>" class="button next">Chapitre suivant</a>
             <?php endif;  ?>
         </div>
     </section>
