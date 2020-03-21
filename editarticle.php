@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Overlock&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="medias/icon.png" type="image/x-icon">
     <title>BlogAC - Modifier un article</title>
+    <meta name="theme-color" content="#E4F1FF"/>
 </head>
 <?php 
     include 'connectbdd.php';
@@ -16,8 +18,6 @@
     $req->execute(array($aled));
 
     $donnees = $req->fetch();
-
-    //header('Location: admin.php');
 ?>
 <body>
     <a class="button-main" href="admin.php" >Annuler</a>
@@ -30,15 +30,27 @@
             <h1><?php echo $donnees['titre'] ?></h1>
         </div>
     </header>
-    <section class="article-content">
+    <section class="article-content-edit">
         <form action="changearticle.php" method="post">
             <input type="hidden" name="idEditArticle" value="<?php echo $donnees['id'] ?>">
-            <textarea name="editContent" id="" content="bonjour"><?php echo nl2br($donnees['description']); ?></textarea>
+            <article>
+                <textarea name="editContent" id="" content="bonjour"><?php echo $donnees['description']; ?></textarea>
+            </article>
+            <section class="article-content-image-edit">
+                <div>
+                    <img src="medias/articleimg/<?php echo $donnees['imagearticle'] ?>" alt="">
+                    <input type="text" name="legende" id="" value="<?php echo $donnees['legende'] ?>">
+                </div>
+            </section>
+            <article>
+                <textarea name="editContent2" id="" content="bonjour"><?php echo $donnees['description2']; ?></textarea>
+            </article>
             <input type="submit" value="Enregistrer" class="button">
         </form>
     </section>
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-    <script src="js/main.js"></script>
+    <footer>
+        <p>Fait par <a href="https://www.theomigeat.com/" target="_blank" class="rainbow">Théo Migeat</a>~ pour toute question ou suggestion, n'hésitez pas à me contacter sur <a href="https://twitter.com/STM3900" target="_blank">twitter</a> !</p>
+    </footer>
 </body>
 
 </html>

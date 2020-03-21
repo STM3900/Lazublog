@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Overlock&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>BlogAC</title>
+    <script src="https://kit.fontawesome.com/373a1c097b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="medias/icon.png" type="image/x-icon">
+    <meta name="theme-color" content="#E4F1FF"/>
 </head>
 <?php 
     include 'connectbdd.php';
@@ -23,7 +25,7 @@
 
     // On vérifie qu'on est pas en dehors du tableau 
     //(par exemple si l'utilisateur rentre dans l'url id=0 cela le redirigera vers la première id)
-    if ($idArticle < 1) {
+    if ($idArticle < 0) {
         header('Location: ?id=1');
         die();
     }
@@ -41,9 +43,9 @@
     $donnees = $req->fetch();
 
 ?>
-
+<title>Lazublog - Chapitre <?php echo $idArticle; ?></title>
 <body>
-    <a class="button-main" href="index.php" >Retour à l'accueil</a>
+    <a class="button-main" href="index.php" ><i class="fas fa-home"></i></a>
     <header class="article-header">
         <div>
             <aside style="background-image: url('medias/mainimg/<?php echo $donnees['image'] ?>');"></aside>
@@ -55,6 +57,15 @@
     </header>
     <section class="article-content">
         <p><?php echo nl2br($donnees['description']); ?></p>
+    </section>
+    <section class="article-content-image">
+        <div>
+            <img src="medias/articleimg/<?php echo $donnees['imagearticle'] ?>" alt="">
+            <p><?php echo $donnees['legende'] ?></p>
+        </div>
+    </section>
+    <section class="article-content">
+        <p><?php echo nl2br($donnees['description2']); ?></p>
     </section>
     <section class="article-buttons">
         <div>
@@ -74,8 +85,10 @@
             <?php endif;  ?>
         </div>
     </section>
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
     <script src="js/main.js"></script>
+    <footer>
+        <p>Fait par <a href="https://www.theomigeat.com/" target="_blank" class="rainbow">Théo Migeat</a>~ pour toute question ou suggestion, n'hésitez pas à me contacter sur <a href="https://twitter.com/STM3900" target="_blank">twitter</a> !</p>
+    </footer>
 </body>
 
 </html>
